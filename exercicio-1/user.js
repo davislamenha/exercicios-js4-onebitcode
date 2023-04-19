@@ -13,3 +13,12 @@ class User {
     }
   }
 }
+
+const davis = new User(
+  'Davis Lamenha Sampaio',
+  'davislamenha@gmail.com',
+  '123456',
+);
+
+davis.login('davislamenha@gmail.com', '123456');
+davis.login('davislamenha@gmail.com', '123');

@@ -17,3 +17,9 @@ class Product {
     return discountPrice;
   }
 }
+
+const bicicleta = new Product('Bicicleta', 'Bicicleta Caloi 27 marchas.', 2500);
+console.log(bicicleta.inStock);
+bicicleta.addToStock(100);
+console.log(bicicleta.inStock);
+console.log(bicicleta.calculateDiscount('20'));
