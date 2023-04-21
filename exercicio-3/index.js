@@ -2,6 +2,7 @@ import { Component } from './Component.js';
 import { Input } from './Input.js';
 import { Label } from './Label.js';
 import { Form } from './Form.js';
+import { Img } from './Img.js';
 
 const title = new Component('h1', 'body', {
   textContent: 'Classes para o DOM',
