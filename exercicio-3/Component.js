@@ -1,4 +1,4 @@
-class Component {
+export class Component {
   #element = null;
   constructor(tag, parent, attr) {
     this.tag = tag;
