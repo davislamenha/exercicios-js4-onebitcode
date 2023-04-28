@@ -58,7 +58,7 @@ module.exports = class Database {
     return this;
   }
 
-  removeBooksFromStock(posterName, quantity) {
+  removePostersFromStock(posterName, quantity) {
     const poster = this.findPosterByName(posterName);
     poster?.removeFromStock(quantity);
     return this;
