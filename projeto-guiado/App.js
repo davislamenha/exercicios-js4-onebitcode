@@ -9,7 +9,7 @@ module.exports = class App {
 
   createUser(name, email, password) {
     const user = new User(name, email, password);
-    App.#database.saveUser(user);
+    return App.#database.saveUser(user);
   }
 
   getUsers() {
@@ -18,10 +18,10 @@ module.exports = class App {
 
   createAuthor(name, nationality, bio) {
     const author = new Author(name, nationality, bio);
-    App.#database.saveAuthor(author);
+    return App.#database.saveAuthor(author);
   }
 
-  getAuthor() {
+  getAuthors() {
     return App.#database.find('authors');
   }
 
@@ -46,19 +46,28 @@ module.exports = class App {
       inStock,
     );
     App.#database.saveBook(book);
+    return this;
   }
 
   addBook(bookName, quantity) {
     App.#database.addBooksToStock(bookName, quantity);
   }
 
-  createPoster(name, height, width, description, price, inStock) {
-    const poster = new Poster(name, height, width, description, price, inStock);
-    App.#database.savePoster(poster);
+  getBooks() {
+    return App.#database.find('books');
   }
 
-  addBook(posterName, quantity) {
+  createPoster(name, height, width, description, price, inStock) {
+    const poster = new Poster(name, height, width, description, price, inStock);
+    return App.#database.savePoster(poster);
+  }
+
+  addPoster(posterName, quantity) {
     App.#database.addPostersToStock(posterName, quantity);
+  }
+
+  getPosters() {
+    return App.#database.find('posters');
   }
 
   createOrder(items, user) {

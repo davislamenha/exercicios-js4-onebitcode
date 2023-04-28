@@ -13,7 +13,6 @@ module.exports = class Database {
 
   saveAuthor(author) {
     this.#storage.authors.push(author);
-    return this;
   }
 
   findBookByName(bookName) {
@@ -23,21 +22,18 @@ module.exports = class Database {
   saveBook(book) {
     const bookExist = this.findBookByName(book.name);
     if (!bookExist) {
-      this.#storage.authors.push(book);
+      this.#storage.books.push(book);
     }
-    return this;
   }
 
   addBooksToStock(bookName, quantity) {
     const book = this.findBookByName(bookName);
     book?.addToStock(quantity);
-    return this;
   }
 
   removeBooksFromStock(bookName, quantity) {
     const book = this.findBookByName(bookName);
     book?.removeFromStock(quantity);
-    return this;
   }
 
   findPosterByName(posterName) {
@@ -47,21 +43,18 @@ module.exports = class Database {
   savePoster(poster) {
     const posterExist = this.findPosterByName(poster.name);
     if (!posterExist) {
-      this.#storage.authors.push(poster);
+      this.#storage.posters.push(poster);
     }
-    return this;
   }
 
   addPostersToStock(posterName, quantity) {
     const poster = this.findPosterByName(posterName);
     poster?.addToStock(quantity);
-    return this;
   }
 
   removePostersFromStock(posterName, quantity) {
     const poster = this.findPosterByName(posterName);
     poster?.removeFromStock(quantity);
-    return this;
   }
 
   saveUser(user) {
@@ -69,12 +62,10 @@ module.exports = class Database {
     if (!userExist) {
       this.#storage.users.push(user);
     }
-    return this;
   }
 
   saveOrder(order) {
     this.#storage.orders.push(order);
-    return this;
   }
 
   showStorage() {
@@ -83,6 +74,5 @@ module.exports = class Database {
     console.table(this.#storage.posters);
     console.table(this.#storage.users);
     console.table(this.#storage.orders.map((o) => o.data));
-    return this;
   }
 };
