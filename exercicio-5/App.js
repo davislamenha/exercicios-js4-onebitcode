@@ -27,10 +27,19 @@ module.exports = class App {
   static transferencia(valor, emailRementente, emailBeneficiario) {
     const remetente = App.buscarUsuario(emailRementente);
     const beneficiario = App.buscarUsuario(emailBeneficiario);
-    const transferencia = new Transferencia(valor, remetente, beneficiario);
+    const transferenciaRementente = new Transferencia(
+      valor,
+      remetente,
+      beneficiario,
+    );
+    const transferenciaBeneficiario = new Transferencia(
+      valor,
+      remetente,
+      beneficiario,
+    );
     if (remetente.conta.verSaldo >= valor) {
-      remetente.conta.transferencia(transferencia);
-      beneficiario.conta.transferencia(transferencia);
+      remetente.conta.transferencia(transferenciaRementente);
+      beneficiario.conta.transferencia(transferenciaBeneficiario);
     } else console.log('Saldo Insuficiente!');
   }
 

@@ -23,6 +23,7 @@ module.exports = class Conta {
 
   transferencia(transferencia) {
     if (transferencia.remetente.email === this.usuario.email) {
+      transferencia.tipo = 'D';
       this.#saldo -= transferencia.valor;
       this.transferencias.push(transferencia);
     } else if (transferencia.beneficiario.email === this.usuario.email) {

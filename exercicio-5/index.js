@@ -15,4 +15,5 @@ console.log(App.buscarUsuario('dione@gmail.com').conta.verSaldo);
 
 console.table([App.buscarUsuario('davis@gmail.com').conta.depositos[0]]);
 console.table([App.buscarUsuario('ana@gmail.com').conta.transferencias[0]]);
+console.table([App.buscarUsuario('dione@gmail.com').conta.transferencias[0]]);
 console.table([App.buscarUsuario('dione@gmail.com').conta.emprestimos[0]]);
